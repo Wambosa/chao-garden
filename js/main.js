@@ -37,11 +37,10 @@ function Chao(options) {
     false
   );
   this.sprite.animations.add(
-    'walkRight', 
-    Phaser.Animation.generateFrameNames('chao_', 2, 3, '', 3),
+    'walkRight',
+    [5, 15, 6, 15], 
     this.speed * .14,
-    true,
-    false
+    true
   );
   this.sprite.animations.add(
     'walkUp', 
@@ -52,10 +51,9 @@ function Chao(options) {
   );
   this.sprite.animations.add(
     'happy', 
-    Phaser.Animation.generateFrameNames('chao_', 20, 22, '', 3),
-    3,
-    true,
-    false
+    [31, 32, 31],
+    2,
+    true
   );
   this.sprite.animations.add(
     'grumpy', 
