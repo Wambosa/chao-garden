@@ -112,10 +112,10 @@ function Chao(options) {
       
       var facing = W.getFacingDirection(this);
       switch(facing){
-        case 'Up': this.sprite.animations.play("walkUp"); break;
-        case 'Down': this.sprite.animations.play("walkDown"); break;
-        case 'Left': this.sprite.animations.play("walkRight"); this.sprite.scale.x = -1; break;
-        case 'Right': this.sprite.animations.play("walkRight"); this.sprite.scale.x = 1; break;
+        case DIRECTION.UP: this.sprite.animations.play("walkUp"); break;
+        case DIRECTION.DOWN: this.sprite.animations.play("walkDown"); break;
+        case DIRECTION.LEFT: this.sprite.animations.play("walkRight"); this.sprite.scale.x = -1; break;
+        case DIRECTION.RIGHT: this.sprite.animations.play("walkRight"); this.sprite.scale.x = 1; break;
       }
     }else{
       this.sprite.animations.play(this.mood);

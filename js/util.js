@@ -1,4 +1,12 @@
+const DIRECTION = {
+    DOWN: 'Down',
+    UP: 'Up',
+    LEFT: 'Left',
+    RIGHT: 'Right'
+};
+
 window.W = {
+    
     randomInt: function(min, max) {
         return Math.floor(Math.random()*(max-min+1)+min);
     },
@@ -12,21 +20,20 @@ window.W = {
         );
     },
     getFacingDirection: function(obj){
-        var dir = "Down";
+        var dir = DIRECTION.DOWN;
         
         if(obj.sprite){
             
             var horizontalDiff = Math.abs(obj.sprite.position.x - obj.sprite.previousPosition.x);
             var verticalDiff = Math.abs(obj.sprite.position.y - obj.sprite.previousPosition.y);
             
-            if(horizontalDiff > verticalDiff + 0.1){
-                dir = obj.sprite.position.x > obj.sprite.previousPosition.x ? 'Right' : 'Left';
-            }else{
-                 dir = obj.sprite.position.y > obj.sprite.previousPosition.y ? 'Down' : 'Up';
-            }
+            if(horizontalDiff > verticalDiff + 0.1)
+                dir = obj.sprite.position.x > obj.sprite.previousPosition.x ? DIRECTION.RIGHT : DIRECTION.LEFT;
+            else
+                dir = obj.sprite.position.y > obj.sprite.previousPosition.y ? DIRECTION.DOWN : DIRECTION.UP;
             
         }else{
-            console.warn(obj.name, "getFacingDirection failed because 'position' properties are missing");
+            console.warn(obj.name, "getFacingDirection failed because 'sprite' property is missing");
         }
         
         return dir;
